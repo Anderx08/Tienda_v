@@ -20,26 +20,28 @@ import org.springframework.web.servlet.i18n.SessionLocaleResolver;
  * @author user
  */
 public class ProjectConfig implements WebMvcConfigurer {
-    
-    @Bean
-    public LocaleResolver localReseolver(){
-        var slr=new SessionLocaleResolver();
-        slr.setDefaultLocale(Locale.getDefault());
-        slr.setTimeZoneAttributeName("session.current.locale");
-        slr.setTimeZoneAttributeName("session.current.timezone");
-        return slr;
+      @Bean
+    public LocaleResolver localeResolver() {
+       var slr = new SessionLocaleResolver(); 
+       slr.setDefaultLocale(Locale.getDefault());
+       slr.setTimeZoneAttributeName("session.current.locale");
+       slr.setTimeZoneAttributeName("session.current.timezone");
+       return slr;
     }
     
     @Bean
-    public LocaleChangeInterceptor localeChangeInterceptor(){
-        var lci=new LocaleChangeInterceptor();
+    public LocaleChangeInterceptor localeChangeInterceptor() {
+        var lci = new LocaleChangeInterceptor();
         lci.setParamName("lang");
         return lci;
     }
     
     @Override
-    public void addInterceptors(InterceptorRegistry registro){
-      registro.addInterceptor(localeChangeInterceptor());
+    public void addInterceptors(
+            InterceptorRegistry registro) {
+        registro.addInterceptor(
+                localeChangeInterceptor()
+        );
     }
     
 }
