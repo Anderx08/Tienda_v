@@ -39,8 +39,8 @@ public class PruebasController {
 
         return "/pruebas/listado";
     }
-
-   @GetMapping("/listado/{idCategoria}")
+    
+    @GetMapping("/listado/{idCategoria}")
     public String listado(Model model, Categoria categoria) {
         var productos = categoriaService.getCategoria(categoria).getProductos();
         var categorias = categoriaService.getCategorias(false);
@@ -49,5 +49,6 @@ public class PruebasController {
         model.addAttribute("categorias", categorias);
         return "/pruebas/listado";
     }
+    
 
 }

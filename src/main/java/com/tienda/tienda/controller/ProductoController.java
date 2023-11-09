@@ -6,9 +6,11 @@ package com.tienda.tienda.controller;
 
 
 
+import com.tienda.tienda.domain.Categoria;
 import com.tienda.tienda.domain.Producto;
 import com.tienda.tienda.service.CategoriaService;
 import com.tienda.tienda.service.ProductoService;
+import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -24,6 +26,9 @@ public class ProductoController {
      
      @Autowired
     CategoriaService categoriaService;
+     
+    
+     
 
     @GetMapping("/producto/listado")
     public String inicio(Model model) {
@@ -61,5 +66,5 @@ public class ProductoController {
         productoService.delete(producto);
             return "redirect:/producto/listado";
     }
-
+ 
 }
