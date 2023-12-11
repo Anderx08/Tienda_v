@@ -29,7 +29,7 @@ public class Producto implements Serializable {
     private double precio;
     private int existencias;
     private String rutaImagen;
-    private Boolean activo;
+    private boolean activo;
     
     
     @ManyToOne
